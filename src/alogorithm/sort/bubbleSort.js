@@ -10,7 +10,7 @@
 
 */
 
-function bubbleSort(arr) {
+export function bubbleSort(arr) {
     let noSwaps = false;
     for (let i = arr.length; i > 0; i--) {
         noSwaps = true;

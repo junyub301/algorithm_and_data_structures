@@ -35,4 +35,4 @@ export function quickSort(arr, left = 0, right = arr.length - 1) {
     return arr;
 }
 
-console.log(quickSort([4, 8, 2, 1, 5, 7, 6, 3]));
+// console.log(quickSort([4, 8, 2, 1, 5, 7, 6, 3]));
