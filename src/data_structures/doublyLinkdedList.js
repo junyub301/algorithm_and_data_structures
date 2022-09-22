@@ -1,3 +1,17 @@
+/* 
+    Big O
+     - insertion -> O(1);
+     - removal -> O(1)
+     - searching -> O(N)
+     - access -> O(N)
+
+    doubly linkded list  vs singly linked list
+    - 이중 연결 리스트는 그전 노드를 가리키는 포인터가 하나 더 있다는 점만 빼면
+      단일 연결 리스트랑 같다. 
+    - 이중 연결 리스트는 무언갈 찾는데 더 나은 성능을 보인다.
+      - 하지만 추가로 만든 포인터는 메모리를 더 소모 한다.
+
+*/
 class Node {
     constructor(val) {
         this.val = val;
@@ -139,5 +153,3 @@ export default class DoublyLinkdedList {
         return removeNode;
     }
 }
-
-const list = new DoublyLinkdedList();

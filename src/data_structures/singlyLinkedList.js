@@ -142,32 +142,3 @@ export default class SinglyLinkedList {
         return this;
     }
 }
-
-const list = new SinglyLinkedList();
-list.push("1");
-list.push("2");
-list.push("3");
-list.push("4");
-list.push("5");
-list.push("6");
-/* 
-list.pop();
-list.pop();
-list.pop();
-console.log("pop ===== >", list);
-
-list.unshift("new");
-list.unshift("new2");
-list.unshift("new3");
-list.unshift("new4");
-
-console.log("unshift ===== >", list);
-
-console.log("get 1:", list.get(1));
-
-list.insert(1, "insert");
-console.log("get 1:", list.get(1));
- */
-// list.remove(1);
-list.reverse();
-console.log("list ===== >", list);
