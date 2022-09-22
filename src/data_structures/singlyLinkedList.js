@@ -21,7 +21,7 @@ class Node {
     }
 }
 
-class SinglyLinkedList {
+export default class SinglyLinkedList {
     constructor() {
         this.head = null;
         this.tail = null;
@@ -55,7 +55,7 @@ class SinglyLinkedList {
             this.head = null;
             this.tail = null;
         }
-        return current.val;
+        return current;
     }
 
     shift() {
@@ -66,7 +66,7 @@ class SinglyLinkedList {
         if (this.length === 0) {
             this.tail = null;
         }
-        return current.val;
+        return current;
     }
 
     unshift(val) {
@@ -97,7 +97,8 @@ class SinglyLinkedList {
         if (foundNode) {
             foundNode.val = val;
             return true;
-        } else return false;
+        }
+        return false;
     }
 
     insert(index, val) {
@@ -121,8 +122,9 @@ class SinglyLinkedList {
         let prevNode = this.get(index - 1);
         let removeNode = prevNode.next;
         prevNode.next = removeNode.next;
+        removeNode.next = null;
         this.length--;
-        return removeNode.val;
+        return removeNode;
     }
 
     reverse() {

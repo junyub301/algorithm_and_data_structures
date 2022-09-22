@@ -7,6 +7,7 @@ import { mergeSort } from "./alogorithm/sort/mergeSort";
 import { quickSort } from "./alogorithm/sort/quickSort";
 import { radixSort } from "./alogorithm/sort/radixSort";
 import { selectSort } from "./alogorithm/sort/selectSort";
+import DoublyLinkdedList from "./data_structures/doublyLinkdedList";
 
 const searchArr = [
     5, 6, 10, 13, 14, 18, 30, 34, 35, 37, 40, 44, 64, 79, 84, 86, 95, 96, 98,
@@ -26,4 +27,9 @@ const sortArr = [4, 3, 1, 26, 8, 34, 8];
 // const result = quickSort(sortArr);
 // const result = radixSort(sortArr);
 // const result = selectSort(sortArr);
-console.log(result);
+// console.log(result);
+
+const list = new DoublyLinkdedList();
+list.push(99);
+list.pop();
+console.log(list);
