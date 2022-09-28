@@ -23,6 +23,14 @@
  Bio O
  insertion - O(log N)
  searching - O(log N)
+
+ 트리순회
+- 너비우선탐색(BFS) : 아래로 내려가기 전에 같은 레벨에 있는 모든 노드들을 겨쳐감
+- 깊이우선탐색(DFS) : 형제노드로 넘어가기 전 수직으로 트리 끝까지 내려감
+    - 전위탐색(DFS-PreOrder)
+    - 후위탐색(DFS-PostOrder)
+    - 정위탐색(DFS-InOrder)
+
  
 */
 
@@ -125,13 +133,49 @@ class BinarySearchTree {
         }
         return false;
     }
-}
+    BFS() {
+        let node = this.root;
+        let data = [];
+        let queue = [];
+        queue.push(node);
+        while (queue.length) {
+            node = queue.shift();
+            data.push(node.value);
+            if (node.left) queue.push(node.left);
+            if (node.right) queue.push(node.right);
+        }
+        return data;
+    }
 
-let tree = new BinarySearchTree();
-tree.insert(10);
-tree.insert(15);
-tree.insert(6);
-tree.insert(12);
-tree.insert(11);
-tree.insert(7);
-tree.insert(3);
+    DFSPreOrder() {
+        let data = [];
+        function travers(node) {
+            data.push(node.value);
+            if (node.left) travers(node.left);
+            if (node.right) travers(node.right);
+        }
+        travers(this.root);
+        return data;
+    }
+
+    DFSPostOrder() {
+        let data = [];
+        function travers(node) {
+            if (node.left) travers(node.left);
+            if (node.right) travers(node.right);
+            data.push(node.value);
+        }
+        travers(this.root);
+        return data;
+    }
+    DFSInOrder() {
+        let data = [];
+        function travers(node) {
+            if (node.left) travers(node.left);
+            data.push(node.value);
+            if (node.right) travers(node.right);
+        }
+        travers(this.root);
+        return data;
+    }
+}
