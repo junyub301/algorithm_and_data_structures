@@ -22,6 +22,7 @@
             - 모든 간선을 순환할 때는 인접 행렬 보다 빠르다.
             - 특정 간선을 확인 할 때는 인접 행렬보다 느리다.
 
+
 */
 
 class Graph {
@@ -57,5 +58,64 @@ class Graph {
             this.removeEdge(vertex, key);
         }
         delete this.adjacencyList[vertex];
+    }
+
+    depthFirstRecursive(start) {
+        const result = [];
+        const visited = {};
+        const adjacencyList = this.adjacencyList;
+        (function dfs(vertex) {
+            if (!vertex) return null;
+            visited[vertex] = true;
+            result.push(vertex);
+            adjacencyList[vertex].forEach((neighbor) => {
+                if (!visited[neighbor]) {
+                    return dfs(neighbor);
+                }
+            });
+        })(start);
+
+        return result;
+    }
+    depthFirstIterative(start) {
+        const stack = [start];
+        const result = [];
+        const visited = {};
+        visited[start] = true;
+        let currentVertex;
+
+        while (stack.length) {
+            currentVertex = stack.pop();
+            result.push(currentVertex);
+
+            this.adjacencyList[currentVertex].forEach((neighbor) => {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    stack.push(neighbor);
+                }
+            });
+        }
+
+        return result;
+    }
+
+    breadthFirst(start) {
+        const queue = [start];
+        const result = [];
+        const visited = {};
+        let currentVertex;
+        visited[start] = true;
+
+        while (queue.length) {
+            currentVertex = queue.shift();
+            result.push(currentVertex);
+            this.adjacencyList[currentVertex].forEach((neighbor) => {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    queue.push(neighbor);
+                }
+            });
+        }
+        return result;
     }
 }
