@@ -5,7 +5,7 @@ class Node {
     }
 }
 
-class PriorityQueue {
+export default class PriorityQueue {
     constructor() {
         this.values = [];
     }
@@ -50,15 +50,15 @@ class PriorityQueue {
 
             if (leftIdx < length) {
                 left = this.values[leftIdx];
-                if (left < element) {
+                if (left.priority < element.priority) {
                     swap = leftIdx;
                 }
             }
             if (rightIdx < length) {
                 right = this.values[rightIdx];
                 if (
-                    (swap === null && right < element) ||
-                    (swap !== null && right < left)
+                    (swap === null && right.priority < element.priority) ||
+                    (swap !== null && right.priority < left.priority)
                 ) {
                     swap = rightIdx;
                 }
@@ -73,13 +73,3 @@ class PriorityQueue {
         }
     }
 }
-
-let er = new PriorityQueue();
-er.enqueue("5", 5);
-er.enqueue("1", 1);
-er.enqueue("4", 4);
-er.enqueue("2", 2);
-er.enqueue("1", 3);
-console.log(er);
-console.log(er.dequeue());
-console.log(er);
