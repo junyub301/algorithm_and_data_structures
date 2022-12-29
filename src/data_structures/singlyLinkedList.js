@@ -129,7 +129,7 @@ export default class SinglyLinkedList {
 
     reverse() {
         let node = this.head;
-        this.heade = this.tail;
+        this.head = this.tail;
         this.head = node;
         let next;
         let prev = null;
@@ -140,5 +140,14 @@ export default class SinglyLinkedList {
             node = next;
         }
         return this;
+    }
+    print() {
+        var arr = [];
+        var current = this.head;
+        while (current) {
+            arr.push(current.val);
+            current = current.next;
+        }
+        console.log(arr);
     }
 }

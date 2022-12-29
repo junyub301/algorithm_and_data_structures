@@ -53,20 +53,7 @@ class MaxBinaryHeap {
         while (true) {
             let leftIdx = idx * 2 + 1;
             let rightIdx = idx * 2 + 2;
-            let left = this.values[leftIdx];
-            let right = this.values[rightIdx];
-            let biggerIdx = left > right ? leftIdx : rightIdx;
-            let biggerValue = this.values[biggerIdx];
-            if (!biggerValue) break;
-            if (element < biggerValue) {
-                [this.values[biggerIdx], this.values[idx]] = [
-                    element,
-                    biggerValue,
-                ];
-                idx = biggerIdx;
-            }
-
-            /*  let left, right;
+            let left, right;
             let swap = null;
 
             if (leftIdx < length) {
@@ -91,7 +78,6 @@ class MaxBinaryHeap {
                 element,
             ];
             idx = swap;
-            */
         }
     }
 }
