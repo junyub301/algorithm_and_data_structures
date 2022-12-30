@@ -145,7 +145,7 @@ export default class DoublyLinkdedList {
         const nextNode = removeNode.next;
 
         prevNode.next = nextNode;
-        prevNode.prve = prevNode;
+        nextNode.prve = prevNode;
         removeNode.next = null;
         removeNode.prev = null;
         this.length--;
