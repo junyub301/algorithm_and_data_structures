@@ -87,52 +87,6 @@ class BinarySearchTree {
         return undefined;
     }
 
-    delete(value) {
-        if (this.root === null) return undefined;
-        let current = this.root;
-        let parent = current;
-        while (current) {
-            if (current.value < value) {
-                // 삭제할 노드가 현재 노드보다 큰 값일때 탐색
-                parent = current;
-                current = current.right;
-            } else if (current.value > value) {
-                // 삭제할 노드가 현재 노드보다 작은 값일때 탐색
-                parent = current;
-                current = current.left;
-            } else {
-                if (current.right !== null) {
-                    // 삭제할 노드를 찾고 오른쪽/왼쪽 자식 노드가 동시에 있을 경우
-                    if (current.left) {
-                        current.right.left = current.left;
-                    }
-
-                    // 삭제할 노드를 찾고 오른쪽 자식 노드가 있을 경우
-                    if (parent.value < current.right.value) {
-                        parent.right = current.right;
-                    } else {
-                        parent.left = current.right;
-                    }
-                } else if (current.left !== null) {
-                    // 삭제할 노드를 찾고 왼쪽 자식 노드만 있을 경우
-                    if (parent.value < current.left.value) {
-                        parent.right = current.left;
-                    } else {
-                        parent.left = current.left;
-                    }
-                } else {
-                    //삭제할 노드를 찾고 자식 노드가 없을 경우
-                    if (parent.value > current.value) {
-                        parent.left = null;
-                    } else if (parent.value < current.value) {
-                        parent.right = null;
-                    }
-                }
-                return true;
-            }
-        }
-        return false;
-    }
     BFS() {
         let node = this.root;
         let data = [];
