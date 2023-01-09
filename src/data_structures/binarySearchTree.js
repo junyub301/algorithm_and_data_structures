@@ -87,6 +87,33 @@ class BinarySearchTree {
         return undefined;
     }
 
+    delete(value, node) {
+        if (!node) {
+            this.root = this.delete(value, this.root);
+        } else {
+            if (value < node.value) {
+                node.left = this.delete(value, node.left);
+            } else if (value > node.value) {
+                node.right = this.delete(value, node.right);
+            } else if (node.left && node.right) {
+                node.value = this.findMinNode(node.right);
+                node.right = this.delete(node.value, node.right);
+            } else {
+                node = node.left || node.right;
+            }
+        }
+        return node;
+    }
+
+    findMinNode(root) {
+        if (root === null) return null;
+        let current = root;
+        while (current.left) {
+            current = current.left;
+        }
+        return current.value;
+    }
+
     BFS() {
         let node = this.root;
         let data = [];
